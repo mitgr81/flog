@@ -31,11 +31,12 @@ setup(
     zip_safe=False,
     classifiers=(
         'Intended Audience :: Developers',
+        'Intended Audience :: System Administrators',
         'Natural Language :: English',
         'License :: OSI Approved :: MIT License',
         "Operating System :: OS Independent",
         "Development Status :: 4 - Beta",
-        "Topic :: Software Development :: Testing"
+        "Topic :: System :: Logging",
         'Programming Language :: Python',
         'Programming Language :: Python :: 2.6',
         'Programming Language :: Python :: 2.7',
