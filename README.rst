@@ -13,11 +13,6 @@ Fast access to some simple python logging tricks
     :target: https://crate.io/packages/flog/
     :alt: Number of PyPI downloads
 
-|Coverage Status|
-
- .. |Coverage Status| image:: https://coveralls.io/repos/mitgr81/flog/badge.png
-    :target: https://coveralls.io/r/mitgr81/flog
-
 
 Installation
 ============
