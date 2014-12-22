@@ -33,6 +33,8 @@ Logging calls: in and out  Get a logger, decorate functions with ``flog.log_call
 
 Logging calls with sensitive args (such as passwords): Get a logger, decorate functions with ``flog.log_sensitive_call(<your logger>)``
 
+(`new in version 0.1.0`) In production environments, you may wish to run with the environment variable ``FLOG_NOWRAP`` set truthy.  This will make ``flog.log_call`` and ``flog.log_sensitive_call`` exit as quickly as possible and not attempt to emit DEBUG-level statements.  This can also be accomplished by running the interpreter in "optimized" mode (``python -O <your entry>`` or by setting the ``PYTHONOPTIMIZE`` environment variable)
+
 
 License
 =======

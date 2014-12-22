@@ -1,5 +1,6 @@
 from functools import wraps
 import logging
+import os
 
 
 def __get_func_name(func, args):
@@ -29,7 +30,7 @@ def get_logger(name):
     return logger
 
 
-def log_call(logger):
+def _log_call(logger):
     def decorator(function):
         @wraps(function)
         def wrapper(*args, **kwargs):
@@ -44,8 +45,7 @@ def log_call(logger):
     return decorator
 
 
-def log_sensitive_call(logger):
-
+def _log_sensitive_call(logger):
     def decorator(function):
         @wraps(function)
         def wrapper(*args, **kwargs):
@@ -58,3 +58,9 @@ def log_sensitive_call(logger):
             return retval
         return wrapper
     return decorator
+
+if not __debug__ or os.environ.get('FLOG_NOWRAP', False):
+    log_call = log_sensitive_call = lambda logger: lambda function: function
+else:
+    log_call = _log_call
+    log_sensitive_call = _log_sensitive_call
