@@ -35,6 +35,8 @@ Logging calls with sensitive args (such as passwords): Get a logger, decorate fu
 
 (`new in version 0.1.0`) In production environments, you may wish to run with the environment variable ``FLOG_NOWRAP`` set truthy.  This will make ``flog.log_call`` and ``flog.log_sensitive_call`` exit as quickly as possible and not attempt to emit DEBUG-level statements.  This can also be accomplished by running the interpreter in "optimized" mode (``python -O <your entry>`` or by setting the ``PYTHONOPTIMIZE`` environment variable)
 
+(`new in version 0.2.0`) ``flog.log_call`` and ``flog.log_sensitive_call`` both now optionally take a callable that will be called with logger-compatible arguments.  Suggested uses would be to log at a higher-than-debug level, or piping into another stream handler.
+
 
 License
 =======

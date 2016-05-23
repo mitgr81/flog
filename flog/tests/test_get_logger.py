@@ -4,9 +4,9 @@ import random
 import unittest
 
 from mock import patch
-from nose.tools import assert_equals
 
 from flog import flog  # SUT
+
 
 @patch('flog.flog.logging')
 class TestGetLogger(unittest.TestCase):
@@ -20,8 +20,8 @@ class TestGetLogger(unittest.TestCase):
         logging.getLogger.assert_called_once_with(name)
         self.assertEqual(logging.getLogger.return_value, actual)
 
-
     def test_get_logger_adds_null_handler(self, logging):
-        """flog.flog.get_logger: Adds a null logger to the logger in question, avoiding "Unconfigured logger" exceptions """
-        actual = flog.get_logger('_')
+        """flog.flog.get_logger: Adds a null logger to the logger in question,
+            avoiding "Unconfigured logger" exceptions """
+        flog.get_logger('_')
         logging.getLogger.return_value.addHandler.assert_called_once_with(logging.NullHandler())

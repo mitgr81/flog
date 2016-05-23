@@ -1,2 +1,6 @@
+-e .
+
 nose
 mock
+spec
+tox

@@ -10,3 +10,9 @@ clean:
 	@printf "Cleaning up files that are already in .gitignore... "
 	@for pattern in `cat .gitignore`; do find . -name "$$pattern" -delete; done
 	@echo "OK!"
+
+dependencies:
+	pip install -r requirements.txt
+
+testall:
+	tox

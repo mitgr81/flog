@@ -16,6 +16,13 @@ def __get_func_name(func, args):
     return qualname
 
 
+def __get_log_function(logger):
+    if callable(logger):
+        return logger
+    else:
+        return logger.debug
+
+
 def get_logger(name):
     """Gets a logger
 
@@ -31,30 +38,34 @@ def get_logger(name):
 
 
 def _log_call(logger):
+    log_function = __get_log_function(logger)
+
     def decorator(function):
         @wraps(function)
         def wrapper(*args, **kwargs):
             full_function_name = '{}.{}'.format(function.__module__, __get_func_name(function, args))
-            logger.debug('{}: args: {}, kwargs: {}'.format(full_function_name, args, kwargs))
-            #If you're debugging, you'll want to step into that thing down there
+            log_function('{}: args: {}, kwargs: {}'.format(full_function_name, args, kwargs))
+            # If you're debugging, you'll want to step into that thing down there
             retval = function(*args, **kwargs)
-            #If you're debugging and wanted to hit the function and haven't yet, it's already too late!
-            logger.debug('{}: returns: {}'.format(full_function_name, retval))
+            # If you're debugging and wanted to hit the function and haven't yet, it's already too late!
+            log_function('{}: returns: {}'.format(full_function_name, retval))
             return retval
         return wrapper
     return decorator
 
 
 def _log_sensitive_call(logger):
+    log_function = __get_log_function(logger)
+
     def decorator(function):
         @wraps(function)
         def wrapper(*args, **kwargs):
             full_function_name = '{}.{}'.format(function.__module__, __get_func_name(function, args))
-            logger.debug('{}: args: *XXXXXX, kwargs: **XXXXXXX'.format(full_function_name))
-            #If you're debugging, you'll want to step into that thing down there
+            log_function('{}: args: *XXXXXX, kwargs: **XXXXXXX'.format(full_function_name))
+            # If you're debugging, you'll want to step into that thing down there
             retval = function(*args, **kwargs)
-            #If you're debugging and wanted to hit the function and haven't yet, it's already too late!
-            logger.debug('{}: returns: XXXXXXXXXX'.format(full_function_name))
+            # If you're debugging and wanted to hit the function and haven't yet, it's already too late!
+            log_function('{}: returns: XXXXXXXXXX'.format(full_function_name))
             return retval
         return wrapper
     return decorator
