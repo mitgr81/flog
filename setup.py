@@ -29,16 +29,16 @@ setup(
     install_requires=requires,
     license="MIT",
     zip_safe=False,
-    classifiers=(
-        'Intended Audience :: Developers',
-        'Intended Audience :: System Administrators',
-        'Natural Language :: English',
-        'License :: OSI Approved :: MIT License',
-        "Operating System :: OS Independent",
-        "Development Status :: 4 - Beta",
-        "Topic :: System :: Logging",
-        'Programming Language :: Python',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.3'
-    ),
+    # classifiers=(
+    #     'Intended Audience :: Developers',
+    #     'Intended Audience :: System Administrators',
+    #     'Natural Language :: English',
+    #     'License :: OSI Approved :: MIT License',
+    #     "Operating System :: OS Independent",
+    #     "Development Status :: 4 - Beta",
+    #     "Topic :: System :: Logging",
+    #     'Programming Language :: Python',
+    #     'Programming Language :: Python :: 2.7',
+    #     'Programming Language :: Python :: 3.5',
+    # ),
 )
