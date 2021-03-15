@@ -3,18 +3,16 @@
 import random
 import unittest
 
-from mock import MagicMock, NonCallableMock, patch
-
 from flog import flog  # SUT
+from mock import MagicMock, NonCallableMock, patch
 
 
 def my_fun(*args, **kwargs):
     return sum(args)
 
 
-@patch('flog.flog.logging')
+@patch("flog.flog.logging")
 class TestLogCall(unittest.TestCase):
-
     def setUp(self):
         self.logger = NonCallableMock()
         # self.logger.debug = MagicMock()
@@ -39,12 +37,9 @@ class TestLogCall(unittest.TestCase):
 
         flog.log_call(self.logger)(my_fun)(randoa, randob, randoc)  # SUT
 
-        self.logger.debug.assert_any_call("test_log_call.my_fun: args: ({}, {}, {}), kwargs: {}".format(
-            randoa,
-            randob,
-            randoc,
-            '{}'
-        ))
+        self.logger.debug.assert_any_call(
+            "test_log_call.my_fun: args: ({}, {}, {}), kwargs: {}".format(randoa, randob, randoc, "{}")
+        )
         self.logger.debug.assert_any_call("test_log_call.my_fun: returns: {}".format(randoa + randob + randoc))
 
     def test_log_call_logs_with_kwargs(self, logging):
@@ -56,12 +51,11 @@ class TestLogCall(unittest.TestCase):
 
         flog.log_call(self.logger)(my_fun)(randoa, randob, randoc, random_frippery_scale=32)  # SUT
 
-        self.logger.debug.assert_any_call("test_log_call.my_fun: args: ({}, {}, {}), kwargs: {rfs}".format(
-            randoa,
-            randob,
-            randoc,
-            rfs="{'random_frippery_scale': 32}"
-        ))
+        self.logger.debug.assert_any_call(
+            "test_log_call.my_fun: args: ({}, {}, {}), kwargs: {rfs}".format(
+                randoa, randob, randoc, rfs="{'random_frippery_scale': 32}"
+            )
+        )
         self.logger.debug.assert_any_call("test_log_call.my_fun: returns: {}".format(randoa + randob + randoc))
 
     def test_log_call_logs_instance_method_with_kwargs(self, logging):
@@ -75,10 +69,7 @@ class TestLogCall(unittest.TestCase):
 
         self.logger.debug.assert_any_call(
             "test_log_call.TestLogCall.instance_method: args: ({}, {}, {}), kwargs: {rfs}".format(
-                randoa,
-                randob,
-                randoc,
-                rfs="{'random_frippery_scale': 32}"
+                randoa, randob, randoc, rfs="{'random_frippery_scale': 32}"
             )
         )
         self.logger.debug.assert_any_call(
@@ -98,10 +89,7 @@ class TestLogCall(unittest.TestCase):
 
         my_logger.assert_any_call(
             "test_log_call.TestLogCall.instance_method: args: ({}, {}, {}), kwargs: {rfs}".format(
-                randoa,
-                randob,
-                randoc,
-                rfs="{'random_frippery_scale': 32}"
+                randoa, randob, randoc, rfs="{'random_frippery_scale': 32}"
             )
         )
         my_logger.assert_any_call(
@@ -109,9 +97,8 @@ class TestLogCall(unittest.TestCase):
         )
 
 
-@patch('flog.flog.logging')
+@patch("flog.flog.logging")
 class TestLogSensitiveCall(unittest.TestCase):
-
     def setUp(self):
         self.logger = NonCallableMock()
 
