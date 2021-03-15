@@ -8,23 +8,23 @@ except ImportError:
     from distutils.core import setup
 
 packages = [
-    'flog',
+    "flog",
 ]
 
 requires = []
 
 setup(
-    name='flog',
+    name="flog",
     version=flog.__version__,
     description=flog.__description__,
-    long_description=open('README.rst').read(),
-    author='Chris McGraw',
-    author_email='mitgr81+flog@mitgr81.com',
-    url='https://github.com/mitgr81/flog',
-    test_suite='flog.tests',
+    long_description=open("README.rst").read(),
+    author="Chris McGraw",
+    author_email="mitgr81+flog@mitgr81.com",
+    url="https://github.com/mitgr81/flog",
+    test_suite="flog.tests",
     packages=packages,
-    package_dir={'flog': 'flog'},
-    package_data={'': ['LICENSE', 'README.rst']},
+    package_dir={"flog": "flog"},
+    package_data={"": ["LICENSE", "README.rst"]},
     include_package_data=True,
     install_requires=requires,
     license="MIT",
