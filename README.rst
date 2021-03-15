@@ -37,6 +37,7 @@ Logging calls with sensitive args (such as passwords): Get a logger, decorate fu
 
 (`new in version 0.2.0`) ``flog.log_call`` and ``flog.log_sensitive_call`` both now optionally take a callable that will be called with logger-compatible arguments.  Suggested uses would be to log at a higher-than-debug level, or piping into another stream handler.
 
+(`new in version 0.3.0`) ``CorrelationLoggerAdapter`` to assist in adding log correlation ids.  Use it with ``flog.CorrelationLoggerAdapter(logger, {"correlation_id": cid})`` where ``cid`` is some correlation id.
 
 License
 =======
