@@ -6,11 +6,11 @@ Fast access to some simple python logging tricks
 |BuildImage|_
 
 .. image:: https://img.shields.io/pypi/v/flog.svg
-    :target: https://crate.io/packages/flog/
+    :target: https://pypi.org/project/flog/
     :alt: Latest PyPI version
 
 .. image:: https://img.shields.io/pypi/dm/flog.svg
-    :target: https://crate.io/packages/flog/
+    :target: https://pypi.org/project/flog/
     :alt: Number of PyPI downloads
 
 
