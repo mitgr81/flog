@@ -2,9 +2,9 @@
 # -*- coding: utf-8 -*-
 import random
 import unittest
+from unittest.mock import MagicMock, NonCallableMock, patch
 
 from flog import flog  # SUT
-from mock import MagicMock, NonCallableMock, patch
 
 
 def my_fun(*args, **kwargs):
