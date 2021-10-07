@@ -1,5 +1,5 @@
 unit:
-	@nosetests -s --verbosity=2
+	python -m unittest
 
 deploy:
 	@echo "Make sure you changed the version number if appropriate"
