@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "flog"
+version = "0.3.0"
+description = "Fast access to some simple python logging tricks"
+authors = ["Chris McGraw <mitgr81+flog@mitgr81.com>"]
+license = "MIT"
+readme = "README.rst"
+repository = "https://github.com/mitgr81/flog"
+include = ["README.rst", "LICENSE"]
+classifiers = [
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "Operating System :: OS Independent",
+    "Development Status :: 4 - Beta",
+    "Topic :: System :: Logging",
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
