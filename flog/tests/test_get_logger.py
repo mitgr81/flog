@@ -4,9 +4,9 @@ import logging
 import random
 import unittest
 import uuid
+from unittest.mock import patch
 
 from flog import flog  # SUT
-from mock import patch
 
 
 @patch("flog.flog.logging")
